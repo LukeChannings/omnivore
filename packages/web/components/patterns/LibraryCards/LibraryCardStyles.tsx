@@ -91,10 +91,10 @@ export const siteName = (
     return ''
   }
   try {
-    return new URL(originalArticleUrl).hostname.replace(/^www\./, '')
+    return new URL(originalArticleUrl).hostname.replace(/^www\./, '');
   } catch {}
   try {
-    return new URL(itemUrl).hostname.replace(/^www\./, '')
+    return new URL(itemUrl).hostname.replace(/^www\./, '');
   } catch {}
   return ''
 }

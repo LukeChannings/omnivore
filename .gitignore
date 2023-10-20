@@ -69,3 +69,7 @@ data.json
 # android
 *.aab
 *.apk
+
+assets
+bundle.js
+mathjax.js
