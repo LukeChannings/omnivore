@@ -32,7 +32,7 @@ export default function InvitePage(): JSX.Element {
   }, [isLoading, router, viewerData, viewerDataError])
 
   const acceptClicked = useCallback(
-    (event) => {
+    (event: any) => {
       event?.stopPropagation()
 
       if (!router.isReady) {

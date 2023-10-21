@@ -8,10 +8,9 @@
   ],
   "license": "UNLICENSED",
   "scripts": {
-    "test": "lerna run --no-bail test --ignore @omnivore/web",
-    "lint": "lerna run lint --ignore @omnivore/web",
-    "build": "lerna run build --ignore @omnivore/web",
-    "bootstrap": "lerna bootstrap",
+    "test": "lerna run --no-bail test",
+    "lint": "lerna run lint",
+    "build": "lerna run build",
     "test:scoped:example": "lerna run test --scope={@omnivore/pdf-handler,@omnivore/web}",
     "gql-typegen": "graphql-codegen",
     "deploy:web": "vercel --prod"
@@ -33,7 +32,7 @@
     "graphql-tag": "^2.11.0",
     "lerna": "^7.4.1",
     "prettier": "^2.5.1",
-    "typescript": "^4.4.3"
+    "typescript": "4.5.2"
   },
   "volta": {
     "node": "18.16.1",

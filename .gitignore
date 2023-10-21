@@ -73,3 +73,5 @@ data.json
 assets
 bundle.js
 mathjax.js
+
+tsconfig.tsbuildinfo
