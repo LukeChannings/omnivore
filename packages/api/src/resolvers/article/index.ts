@@ -589,6 +589,7 @@ export const saveArticleReadingProgressResolver = authorized<
             readingProgressTopPercent: readingProgressTopPercent ?? undefined,
             readingProgressHighestReadAnchor:
               readingProgressAnchorIndex ?? undefined,
+            readAt: new Date(),
           },
           uid,
           pubsub
