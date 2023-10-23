@@ -564,6 +564,7 @@ export const saveArticleReadingProgressResolver = authorized<
         readingProgressPercent,
         readingProgressAnchorIndex,
         readingProgressTopPercent,
+        force,
       },
     },
     { log, pubsub, uid }
@@ -579,6 +580,26 @@ export const saveArticleReadingProgressResolver = authorized<
       return { errorCodes: [SaveArticleReadingProgressErrorCode.BadData] }
     }
     try {
+      if (force) {
+        // update reading progress without checking the current value
+        const updatedItem = await updateLibraryItem(
+          id,
+          {
+            readingProgressBottomPercent: readingProgressPercent,
+            readingProgressTopPercent: readingProgressTopPercent ?? undefined,
+            readingProgressHighestReadAnchor:
+              readingProgressAnchorIndex ?? undefined,
+          },
+          uid,
+          pubsub
+        )
+
+        return {
+          updatedArticle: libraryItemToArticle(updatedItem),
+        }
+      }
+
+      // update reading progress only if the current value is lower
       const updatedItem = await updateLibraryItemReadingProgress(
         id,
         uid,
